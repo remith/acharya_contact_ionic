@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Category</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="BackHome()" color="#000" style="zoom:2.0;">
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class=" cards-bg">
+  <ion-card class="cards-list-demo">
+    <ion-card-header>
+      Explore Chinmaya Mission
+    </ion-card-header>
+    <ion-list>
+      <button ion-item>
+        Swami
+      </button>
+      <button ion-item>
+        Swamini
+      </button>
+      <button ion-item>
+        Brahmacharis
+      </button>
+      <button ion-item>
+        Brahmacharinis
+      </button>
+      <button ion-item>
+        Acharyas
+      </button>
+    </ion-list>
+  </ion-card>
+</ion-content>
+  <ion-fab right bottom>
+    <button ion-fab color="light"><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+

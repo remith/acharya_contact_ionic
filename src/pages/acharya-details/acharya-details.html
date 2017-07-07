@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!selectedAcharya">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Acharya Details</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="BackHome()" color="#000">
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<!-- <ion-content>
+
+  <div class="acharya-profile" text-left #profilePic [style.background-image]="'url(' + selectedAcharya.img + ')'">
+  </div>
+  <div *ngIf="selectedAcharya">
+    <h4><b>{{selectedAcharya.title}}</b></h4>
+  <h5 *ngIf="selectedAcharya">
+
+	<p>{{selectedAcharya.id}}</p>
+	<p>{{selectedAcharya.contact}}</p>
+  <p>{{selectedAcharya.email}}</p></h5>
+</div>
+	<button ion-button color="secondary" (click)="callNumber()"><h4> Call</h4></button>	
+	<button ion-button color="secondary" (click)="sendEmail()"><h4>Send mail</h4></button>
+</ion-content> -->
+<ion-content *ngIf="selectedAcharya">
+<ion-grid>
+  <ion-row>
+    <ion-col col-5>
+      <img src="http://www.chinmayamission.com/wp-content/themes/GCMW/images/{{selectedAcharya.image}}">
+    </ion-col>
+    <ion-col col-7>
+      <div >
+        <h4><b>{{selectedAcharya.title}}</b></h4>
+        <p>{{selectedAcharya.add1}}</p>
+        <p>{{selectedAcharya.add2}}</p>
+        <p>{{selectedAcharya.add3}}</p>
+        <p>{{selectedAcharya.city}} - {{selectedAcharya.zip}}</p>
+        <p>{{selectedAcharya.state}}, {{selectedAcharya.country}}</p>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <p><b>Phone: </b>{{selectedAcharya.phone}}</p>
+      <p><b>Email: </b>{{selectedAcharya.email}}</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <button ion-button color="danger" (click)="callNumber()"><b> Call</b></button> 
+      <button ion-button color="danger" (click)="sendEmail()"><b>E-Mail</b></button>
+      <button ion-button color="danger" (click)="sendMessage()"><b>Message</b></button>
+      <hr>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+    <b>About {{selectedAcharya.title}}</b>
+    <p>{{selectedAcharya.about1}}</p><br>
+    <p>{{selectedAcharya.about2}}</p><br>
+    <p>{{selectedAcharya.about3}}</p><br>
+    <p>{{selectedAcharya.about4}}</p><br>
+    <p>{{selectedAcharya.about5}}</p>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-footer>

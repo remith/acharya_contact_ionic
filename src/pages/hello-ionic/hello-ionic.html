@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Chinmaya Acharya</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  
+    <ion-slides (ionSlideDidChange)="slideChanged()">
+      <ion-slide>
+        <img src="assets/img/contact.jpg"/>
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/img/contact1.jpg"/>
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/img/contact.jpg"/>
+      </ion-slide>
+    </ion-slides>
+    
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Acharya List</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="BackHome()" color="#000">
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <ion-alpha-scroll *ngIf="acharya"
+    [listData]="acharya"
+    key="title"
+    [itemTemplate]="alphaScrollItemTemplate"
+    [currentPageClass]="currentPageClass"
+    [triggerChange]="triggerAlphaScrollChange">
+  </ion-alpha-scroll>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-footer>
