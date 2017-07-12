@@ -47,11 +47,40 @@ export class ListPage {
 
     ];*/
 
-  this.getAcharyas();
+    let country = navParams.get('country');
+    let salutation = navParams.get('salutation');
+    
+    if(country){
+
+      this.getAcharyabyCountry(country);
+    }
+    else if(salutation){
+
+      this.getAcharyabySalutation(salutation);
+    }else{
+
+      this.getAcharyas();
+    }
+
   }
 
-  
+  getAcharyabySalutation(salutation: String) {
+       console.log("InsidegetAcharyabySalutation "+ salutation);
+       this.acharyaService.getAcharyabySalutation(salutation)
+        .subscribe(
+            posts => this.acharya = posts,
+            error => this.errorMessage = <any>error);
+     }
+  getAcharyabyCountry(country: String) {
+       console.log("InsidegetAcharyabyCountry "+ country);
+       this.acharyaService.getAcharyabyCountry(country)
+        .subscribe(
+            posts => this.acharya = posts,
+            error => this.errorMessage = <any>error);
+     }
+
   getAcharyas() {
+     console.log("InsidegetAcharya " );
     this.acharyaService.getAcharyas()
         .subscribe(
             posts => this.acharya = posts,

@@ -17,19 +17,19 @@
       Explore Chinmaya Mission
     </ion-card-header>
     <ion-list>
-      <button ion-item>
+      <button ion-item (click)="ItemTapped($event, 'Swami')">
         Swami
       </button>
-      <button ion-item>
+      <button ion-item (click)="ItemTapped($event, 'Swamini')">
         Swamini
       </button>
-      <button ion-item>
+      <button ion-item (click)="ItemTapped($event, 'Brahmachari')">
         Brahmacharis
       </button>
-      <button ion-item>
+      <button ion-item (click)="ItemTapped($event, 'Brahmacharini')">
         Brahmacharinis
       </button>
-      <button ion-item>
+      <button ion-item (click)="ItemTapped($event, 'Acharya')">
         Acharyas
       </button>
     </ion-list>

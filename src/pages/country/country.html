@@ -17,22 +17,54 @@
       Countries
     </ion-card-header>
     <ion-list>
-      <button ion-item>Australia</button>
-      <button ion-item>Brazil</button>
-      <button ion-item>Canada</button>
-      <button ion-item>France</button>
-      <button ion-item>Hong Kong</button>
-      <button ion-item>India</button>
-      <button ion-item>Indonesia</button>
-      <button ion-item>Mauritius</button>
-      <button ion-item>New Zealand</button>
-      <button ion-item>Reunion</button>
-      <button ion-item>Singapore</button>
-      <button ion-item>South Africa</button>
-      <button ion-item>Sri Lanka</button>
-      <button ion-item>Trinidad</button>
-      <button ion-item>USA</button>
-      <button ion-item>West Indies</button>
+      <button ion-item (click)="ItemTapped($event, 'Australia')">
+        Australia
+      </button>
+      <button ion-item (click)="ItemTapped($event, 'Brazil')">
+        Brazil
+      </button>
+      <button ion-item (click)="ItemTapped($event, 'Canada')">
+        Canada
+      </button>
+      <button ion-item (click)="ItemTapped($event, 'France')">
+        France
+      </button>
+      <button ion-item (click)="ItemTapped($event, 'Hong Kong')">
+        Hong Kong
+      </button>
+      <button ion-item (click)="ItemTapped($event, 'India')">
+        India
+      </button>
+      <button ion-item (click)="ItemTapped($event, 'Indonesia')">
+        Indonesia
+      </button>
+      <button ion-item (click)="ItemTapped($event, 'Mauritius')">
+        Mauritius
+      </button>
+      <button ion-item (click)="ItemTapped($event, 'New Zealand')">
+        New Zealand
+      </button>
+      <button ion-item (click)="ItemTapped($event, 'Reunion')">
+        Reunion
+      </button>
+      <button ion-item (click)="ItemTapped($event, 'Singapore')">
+        Singapore
+      </button>
+      <button ion-item (click)="ItemTapped($event, 'South Africa')">
+        South Africa
+      </button>
+      <button ion-item (click)="ItemTapped($event, 'Sri Lanka')">
+        Sri Lanka
+      </button>
+      <button ion-item (click)="ItemTapped($event, 'Trinidad')">
+        Trinidad
+      </button>
+      <button ion-item (click)="ItemTapped($event, 'United States')">
+        USA
+      </button>
+      <button ion-item (click)="ItemTapped($event, 'West Indies')">
+        West Indies
+      </button>
     </ion-list>
   </ion-card>
 </ion-content>
