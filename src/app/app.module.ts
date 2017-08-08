@@ -9,7 +9,7 @@ import { AcharyaDetailsPage } from '../pages/acharya-details/acharya-details';
 import { ListPage } from '../pages/list/list';
 import { List1Page } from '../pages/list1/list1';
 import { CountryPage } from '../pages/country/country';
-
+import { FormPage } from '../pages/form/form'
 import { IonAlphaScrollModule } from 'ionic2-alpha-scroll';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -21,7 +21,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AcharyaDetailsPage,
     ListPage,
     List1Page,
-    CountryPage
+    CountryPage,
+    FormPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +36,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AcharyaDetailsPage,
     ListPage,
     List1Page,
-    CountryPage
+    CountryPage,
+    FormPage
   ],
   providers: [
     StatusBar,

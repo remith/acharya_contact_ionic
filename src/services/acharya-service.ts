@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { Observable } from 'rxjs/Observable';
- 
+import 'rxjs/add/observable/throw';
+//import { AcharyaModal } from './acharya-modal.ts'
+
 @Injectable()
 export class AcharyaService {
 
+    //public Acharya = new AcharyaModal;
+    private headers = new Headers({'Content-Type':'application/json'});
     http: Http;
-    archaryaServiceURL= "http://192.168.33.10/Acharyalocal/connection.php";
-
-
+    archaryaServiceURL= "http://api.yiiangularbasic.com/index.php?r=acharyalistrest";
+    
     constructor(http: Http){
        this.http = http;
 
@@ -22,7 +25,24 @@ export class AcharyaService {
             .map(this.extractData)
             .catch(this.handleError);
     }
-
+ 
+//Insert Acharya Details
+    signUp(username: string, email:string, phone:string): Promise<any> {
+        let body = JSON.stringify({
+            username: username,
+            email: email,
+            phone: phone
+        });
+     return this.http
+    .post(this.archaryaServiceURL+'/create', body, this.headers)
+    .toPromise()
+    .then(
+            res =>{
+            console.log(res.json().data);
+             res.json().data as any}
+        )
+    .catch( this.handleError);
+}
 
     getAcharyabySalutation(salutation: String): Observable<any[]> {
         console.log("AcharyaService-> InsidegetAcharyabySalutation "+ salutation);

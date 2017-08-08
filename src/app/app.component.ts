@@ -5,7 +5,7 @@ import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ListPage } from '../pages/list/list';
 import { List1Page } from '../pages/list1/list1';
 import { CountryPage } from '../pages/country/country';
-
+import { FormPage } from '../pages/form/form'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -33,7 +33,8 @@ export class MyApp {
       { title: 'About', component: HelloIonicPage },
       { title: 'Acharya List', component: ListPage },
       { title: 'Acharya Categories', component: List1Page },
-      { title: 'Acharya Country', component: CountryPage }
+      { title: 'Acharya Country', component: CountryPage },
+      { title: 'Sign Up', component: FormPage}
 
     ];
   }

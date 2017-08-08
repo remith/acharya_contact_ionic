@@ -1,0 +1,121 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Signup</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="login-page">
+    <form #signupForm="ngForm" >
+        <ion-list no-lines>
+            <ion-item>
+                <ion-label stacked color="primary">Name</ion-label>
+                <ion-input [(ngModel)]="signup.username" name="username" type="text" #username="ngModel" required>
+                </ion-input>
+            </ion-item>
+            <p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
+                Username is required
+            </p>
+
+            <ion-item>
+                <ion-label stacked color="primary">Email</ion-label>
+                <ion-input [(ngModel)]="signup.email" name="email" type="email" #email="ngModel" required>
+                </ion-input>
+            </ion-item>
+            <p ion-text [hidden]="email.valid || submitted == false" color="danger" padding-left>
+                Email is required
+            </p>
+               <ion-item>
+                <ion-label stacked color="primary">Phone</ion-label>
+                <ion-input [(ngModel)]="signup.phone" name="phone" type="phone" #phone="ngModel" required>
+                </ion-input>
+            </ion-item>
+            <p ion-text [hidden]="phone.valid || submitted == false" color="danger" padding-left>
+                Phone No. is required
+            </p>
+        </ion-list>
+
+        <div padding>
+            <button ion-button (click)="onSignup(signupForm)" type="submit" block>Create</button>
+        </div>
+    </form>
+</ion-content>
+
+
+
+
+
+
+
+<!-- <ion-header>
+    <ion-navbar color="primary">
+      <ion-title>
+        Sign Up
+      </ion-title>
+    </ion-navbar>
+</ion-header>
+  <ion-content class="has-header">
+    <form  name="faleComigoForm" class="falecomigo" novalidate form-manager >
+       <div class="list list-inset" >
+          <ion-item>
+              <ion-label floating>Name</ion-label>
+              <ion-input ng-model="name" name="Name" type="text"  required ng-minlength="2" ng-maxlength="70"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label floating>Email</ion-label>
+              <ion-input ng-model="email" name="Email" type="email"  required ng-maxlength="50"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label floating>Phone</ion-label>
+              <ion-input ng-model="phone" name="Phone" type="text" required ng-minlength="2" ng-maxlength="70"></ion-input>
+          </ion-item>
+      </div>
+      <div class="padding container">
+          <div class="row">
+                <button ion-button medium color="primary" (click)="postAcharya()">Submit!</button>
+                <button type ="reset" ion-button medium color="danger" (click)="reset">Reset!</button>
+          </div>
+      </div>
+    </form>
+  </ion-content>  -->
+
+
+
+
+
+ <!--
+<ion-content>
+    <p style="color: #ea6153;">Please fill out all details accurately.</p>
+ 
+   <ion-list no-lines>
+ 
+        <form>
+ 
+            <ion-item>
+                <ion-label floating>Name</ion-label>
+                <ion-input type="text" ng-model="message.name"></ion-input>
+            </ion-item>
+ 
+ 
+            <ion-item>
+                <ion-label floating>Email</ion-label>
+                <ion-input type="text" ng-model="message.email"></ion-input>
+            </ion-item>
+ 
+ 
+            <ion-item>
+                <ion-label floating>Phone</ion-label>
+                <ion-input type="text" ng-model="message.phone"></ion-input>
+            </ion-item>
+ 
+            <ion-grid >
+	            <button ion-button medium color="primary" (click)="add(name,email,phone)">Submit!</button>
+	            <button type ="reset" ion-button medium color="danger" (click)="reset">Reset!</button>
+ 			</ion-grid>
+ 			           
+        </form>
+ 
+    </ion-list>
+</ion-content> -->
