@@ -11,7 +11,7 @@ import { NgForm } from '@angular/forms';
   templateUrl: 'form.html'
 })
 export class FormPage {
-  signup: {username?: string, email?: string, phone?: string} = {};
+  signup: {name?: string, email?: string, phone?: string} = {};
   submitted = false;
   constructor(private acharyaService: AcharyaService) {
 
@@ -33,7 +33,7 @@ export class FormPage {
     this.submitted = true;
 
     if (form.valid) {
-      this.acharyaService.signUp(this.signup.username, this.signup.email,this.signup.phone);
+      this.acharyaService.signUp(this.signup.name, this.signup.email,this.signup.phone);
     }
   }
   /*postAcharya(){

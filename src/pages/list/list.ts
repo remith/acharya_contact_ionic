@@ -17,11 +17,14 @@ export class ListPage {
   errorMessage:any;
   acharya: any;
   currentPageClass = this;
-  alphaScrollItemTemplate: string = `<ion-list><ion-item (click)="currentPageClass.ItemTapped($event, item)"><ion-avatar item-left><img src="http://www.chinmayamission.com/wp-content/themes/GCMW/images/{{item.image}}"></ion-avatar><h2>{{item.title}}</h2><p>{{item.city}}</p></ion-item></ion-list>`;
-
+  alphaScrollItemTemplate: string = `<ion-list><ion-item (click)="currentPageClass.ItemTapped($event, item)"><ion-avatar item-left><img src="http://www.chinmayamission.com/wp-content/themes/GCMW/images/{{item.image}}"></ion-avatar><h2>{{item.name}}</h2><p>{{item.city}}</p></ion-item></ion-list>`;
   triggerAlphaScrollChange: number = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private acharyaService: AcharyaService) {
+        this.getAcharyas();
+
+  }
+
 /*this.acharya = [
       { "title": 'Advaitananda', "city":'San Jose', "id": 1000, "contact1": '+1-408-2548392', "email":'swamiadvaita@gmail.com', 'img':'assets/img/sw1.jpg', "add1":'Chinmaya Mission',"add2":'Chinmaya Sandeepany',"add3":'10160 Clayton Road',"state":'California',"zip":'95127',"country":'USA',"about1":'Swami Advaitananda, is presently the resident Acharya of Chinmaya Vibhooti, Kolwan. He has served Mission centres like Indore, Allahabad, Kolkata, Durban and Mumbai. Being an outstanding teacher with a depth beneath his simplicity and humility, Swamiji has taught two batches of students in Vedanta Course in Hindi at Sidhabari and one batch in English at Sandeepany Sadhanalaya, Mumbai as the Acharya -in-charge.',"about2":'Endowed with a saintly heart overflowing with love and compassion for all and a pleasing personality, he is open to all those who seek his advice. He lives the philosophy he preaches, ever devoted to His Master and the knowledge of the ancient scriptures.' },
 
@@ -47,7 +50,7 @@ export class ListPage {
 
     ];*/
 
-    let country = navParams.get('country');
+/*    let country = navParams.get('country');
     let salutation = navParams.get('salutation');
     
     if(country){
@@ -60,9 +63,7 @@ export class ListPage {
     }else{
 
       this.getAcharyas();
-    }
-
-  }
+    }*/
 
   getAcharyabySalutation(salutation: String) {
        console.log("InsidegetAcharyabySalutation "+ salutation);
@@ -81,10 +82,10 @@ export class ListPage {
 
   getAcharyas() {
      console.log("InsidegetAcharya " );
-    this.acharyaService.getAcharyas()
-        .subscribe(
+    this.acharyaService.getAcharyas();
+        /*.subscribe(
             posts => this.acharya = posts,
-            error => this.errorMessage = <any>error);
+            error => this.errorMessage = <any>error);*/
   }
 
 
@@ -98,4 +99,5 @@ export class ListPage {
   BackHome(){
     this.navCtrl.setRoot(HelloIonicPage);
   }
+
 }
