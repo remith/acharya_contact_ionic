@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import { AcharyaService } from '../../services/acharya-service';
 import { NgForm } from '@angular/forms';
 //import { Acharya } from '../..services/acharya-modal.ts'
-
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-form',
@@ -13,34 +13,23 @@ import { NgForm } from '@angular/forms';
 export class FormPage {
   signup: {name?: string, email?: string, phone?: string} = {};
   submitted = false;
-  constructor(private acharyaService: AcharyaService) {
-
-  /*   $scope.message = {
-      'name' : '',
-      'email' : '',
-      'phone' : ''
-    };
-	} */
-/*  ionViewDidLoad(){
-    let headers = new Headers();
-    headers.append('content-type','application/json');
-    let body ={
-      message:"message"
-    };*/
-
-  }
-  onSignup(form: NgForm) {
+  resp:{};
+  constructor(private acharyaService: AcharyaService, public alertCtrl: AlertController)  {  }
+  
+  onSignup(form: NgForm) 
+  {
     this.submitted = true;
 
-    if (form.valid) {
-      this.acharyaService.signUp(this.signup.name, this.signup.email,this.signup.phone);
+    if (form.valid) 
+    {
+      this.resp = this.acharyaService.signUp(this.signup.name, this.signup.email, this.signup.phone);
+      console.log(this.resp);
     }
+    let alert = this.alertCtrl.create({
+      title: 'Success!',
+      message: 'Data Submitted Successfully',
+      buttons: ['Ok']
+    });
+    alert.present()
   }
-  /*postAcharya(){
-    console.log("InsidePost ");
-    this.acharyaService.postAcharya(this.name,this.email,this.phone)
-        .subscribe(
-            posts => this.acharya = posts,
-            error => this.errorMessage = <any>error);
-  }*/
 }

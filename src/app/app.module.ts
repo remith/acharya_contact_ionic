@@ -13,6 +13,7 @@ import { FormPage } from '../pages/form/form'
 import { IonAlphaScrollModule } from 'ionic2-alpha-scroll';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {HttpModule} from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -23,11 +24,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     List1Page,
     CountryPage,
     FormPage
+
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonAlphaScrollModule
+    IonAlphaScrollModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

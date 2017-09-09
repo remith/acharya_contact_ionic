@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
+
 //import { AcharyaModal } from './acharya-modal.ts'
 
 @Injectable()
@@ -14,23 +15,86 @@ export class AcharyaService {
     private headers = new Headers({'Content-Type':'application/json'});
     http: Http;
     private archaryaServiceURL= "http://api.yiiangularbasic.com/index.php?r=acharyalistrest";
-    responseData:any;
+    public responseData:string;
 
     constructor(http: Http){
        this.http = http;
-
+       this.getAcharyas();
     }
   // Get Acharya Details   
-    getAcharyas(): Promise<any> {
-            const url = this.archaryaServiceURL;
+    /*getAcharyas(): Promise<any> {
+            const url = this.archaryaServiceURL+'/view';
             console.log(url);
             return this.http.get(url)
             .toPromise()
-            .then(response => response.json().data as any)
+            .then( 
+                  response =>{
+            this.responseData=response.json().data;
+            console.log(this.responseData);
+            response.json().data as any
+            })         
             .catch(this.handleError);
-            /*.map(this.extractData)
-            .catch(this.handleError);*/
-    }
+            
+    }*/
+   /*getAcharyas(): Promise<any> {
+            const url = this.archaryaServiceURL+'/view';
+            
+              return this.http.get(url)
+             .toPromise()
+             .then(response => {
+                 //console.log('showing response in getacharyas');
+                 //console.log(response.json());
+                
+                this.responseData=this.extractData(response);
+                //console.log(this.responseData);
+                this.responseData as any;
+
+             })
+             .catch(this.handleError);
+         }*/
+
+     getAcharyas(): Observable<any> 
+     {
+        const url = this.archaryaServiceURL+'/view';
+            
+              return this.http
+              .get(url)
+              .map(response => response.json()[1]);
+            }
+
+         //getAcharyas():Observable<any>{}
+
+
+        /*interface ItemsResponse 
+         {
+              results: string[];
+        }*/
+    /* getAcharyas(){
+
+         
+         const url = this.archaryaServiceURL+'/view';
+             this.http.get(url).subscribe(response=>{
+             this.responseData=response.json().data;
+         })    
+             console.log('crossed respdata');
+             console.log(this.responseData);
+             return this.responseData;
+     }*/
+    /*
+    this.http.get('/api/items').subscribe(data => {
+      // Read the result field from the JSON response.
+      this.results = data['results'];
+    });
+*/
+
+ /*   getAcharyas(): Observable<any[]> {
+            const url = this.archaryaServiceURL+'/view';
+            console.log(url);        
+            return this.http.get(url)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }*/
+
 
  
 //Insert Acharya Details
@@ -48,7 +112,10 @@ export class AcharyaService {
         //this.http.post(this.archaryaServiceURL+'/create',body,this.headers).subscribe();
         return this.http.post(this.archaryaServiceURL+'/create',body,this.headers)
         .toPromise()
-        .then(response=>console.log(response))         
+        .then(response=>{
+            this.responseData=response.json().data;
+            response.json().data as any
+            })         
         .catch(this.handleError);
         
             /* return this.http.post(this.archaryaServiceURL+'/create', body, this.headers)
@@ -63,6 +130,8 @@ export class AcharyaService {
                     )
                 .catch( this.handleError);*/
     }
+
+     
 
     getAcharyabySalutation(salutation: String): Observable<any[]> {
         console.log("AcharyaService-> InsidegetAcharyabySalutation "+ salutation);
@@ -93,8 +162,8 @@ export class AcharyaService {
       return Promise.reject(error.message || error);
     }
 
-    private javascriptAbort()
+    /*private javascriptAbort()
         {
            throw new Error('This is not an error. This is just to abort javascript');
-        }
+        }*/
 }
