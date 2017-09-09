@@ -59,7 +59,7 @@ export class AcharyaService {
             
               return this.http
               .get(url)
-              .map(response => response.json()[1]);
+              .map(response => response.json());
             }
 
          //getAcharyas():Observable<any>{}

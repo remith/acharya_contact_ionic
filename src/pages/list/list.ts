@@ -42,9 +42,9 @@ export class ListPage {
   getAcharyas() {
      console.log("InsidegetAcharya " );
        return this.acharyaService.getAcharyas()
-               .subscribe(
-                 post => 
-                 );
+            .subscribe(
+            posts => this.acharya = posts,
+            error => this.errorMessage = <any>error);
 
           //return JSON.stringify(this.acharyaService.responseData);
     }
